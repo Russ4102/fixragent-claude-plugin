@@ -1,0 +1,31 @@
+{
+  "name": "fixragent",
+  "displayName": "fixRAgent",
+  "version": "1.0.0",
+  "description": "Maintenance triage from one photo for property managers, landlords and maintenance teams: what the asset is, how urgent it is (EMERGENCY, TODAY, THIS WEEK or WHENEVER), which trade to call, and what to tell the resident.",
+  "author": {
+    "name": "AR Logic LLC",
+    "email": "support@fixragent.com",
+    "url": "https://fixragent.com"
+  },
+  "homepage": "https://fixragent.com/docs",
+  "license": "MIT",
+  "keywords": [
+    "property-management",
+    "maintenance",
+    "triage",
+    "work-orders",
+    "landlords",
+    "tenants"
+  ],
+  "userConfig": {
+    "triage_key": {
+      "type": "string",
+      "title": "fixRAgent key (optional)",
+      "description": "Your free fixRAgent demo key from https://fixragent.com/docs#key. Leave empty to use keyless mode (up to 3 real photo assessments per caller in a rolling 24 hours).",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    }
+  }
+}

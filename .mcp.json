@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "fixragent": {
+      "type": "http",
+      "url": "https://fixragent.com/mcp",
+      "headers": {
+        "x-triage-key": "${user_config.triage_key}"
+      }
+    }
+  }
+}
