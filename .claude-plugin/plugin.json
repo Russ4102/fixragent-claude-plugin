@@ -27,5 +27,7 @@
       "required": false,
       "default": ""
     }
-  }
+  },
+  "privacyPolicyUrl": "https://fixragent.com/privacy",
+  "icon": ".claude-plugin/icon.png"
 }
