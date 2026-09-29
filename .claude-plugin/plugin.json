@@ -30,6 +30,6 @@
   },
   "privacyPolicyUrl": "https://fixragent.com/privacy",
   "icon": ".claude-plugin/icon.png",
-  "supportUrl": "mailto:support@fixragent.com",
+  "supportUrl": "https://fixragent.com/help",
   "repository": "https://github.com/Russ4102/fixragent-claude-plugin"
 }
