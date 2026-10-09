@@ -8,7 +8,7 @@
     "email": "support@fixragent.com",
     "url": "https://fixragent.com"
   },
-  "homepage": "https://fixragent.com/docs",
+  "homepage": "https://fixragent.com/connect-ai.html",
   "license": "MIT",
   "keywords": [
     "property-management",
@@ -16,7 +16,10 @@
     "triage",
     "work-orders",
     "landlords",
-    "tenants"
+    "property-managers",
+    "residents",
+    "maintenance-requests",
+    "mcp"
   ],
   "userConfig": {
     "triage_key": {

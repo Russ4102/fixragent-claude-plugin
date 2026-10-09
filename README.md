@@ -1,6 +1,8 @@
 # fixRAgent for Claude
 
-Maintenance triage from one photo, for property managers, landlords and maintenance teams.
+**fixRAgent is maintenance triage for property managers, landlords and the companies that run buildings.** This plugin puts it inside Claude: a resident sends a photo of what broke, and Claude tells you what it is, how urgent it is, which trade to call and what to say back. It connects to fixRAgent's remote MCP server at `https://fixragent.com/mcp` and adds three skills for a manager's day: triage the photo, reply to the resident, and log a work-order note.
+
+Setup for Claude and every other assistant: <https://fixragent.com/connect-ai>. Made by AR Logic LLC, Saint Marys, Ohio.
 
 Share a photo of something broken in a building (a leaking pipe, a water heater, a boiler, an electrical panel, an appliance, damage) and Claude returns fixRAgent's Triage Profile in plain words:
 
@@ -18,7 +20,7 @@ Anything happening right now that needs emergency services (fire, a gas smell, s
 |---|---|
 | MCP server `fixragent` | Connects Claude to fixRAgent's remote server at `https://fixragent.com/mcp`, with three tools: `try_sample` (a stored sample result, no key needed), `assess_property_photo` (assess one photo) and `get_triage_profile` (read a saved assessment back; needs a key). |
 | Skill `triage-maintenance-photo` | When you share a building-fault photo, sends it for assessment and presents the four answers, any safety note, the resident line and the Triage Profile link. |
-| Skill `tenant-reply` | Turns a Triage Profile into a short, calm text or email for the tenant, using only what the profile says. |
+| Skill `tenant-reply` | Turns a Triage Profile into a short, calm text or email for the resident, using only what the profile says. |
 | Skill `work-order-note` | Formats a Triage Profile as a plain-text work-order note you can paste into any property-management or maintenance software. |
 
 The skills use only what fixRAgent returns. They do not add costs, repair steps, parts or schedules.
@@ -31,7 +33,13 @@ In detail: without a key, `assess_property_photo` reads the real photo up to 3 t
 
 ## Setup
 
-1. Install the plugin.
+1. Install the plugin. In Claude Code:
+
+   ```
+   /plugin install fixragent --marketplace Russ4102/fixragent-claude-plugin
+   ```
+
+   On older Claude Code versions, add the marketplace first (`/plugin marketplace add Russ4102/fixragent-claude-plugin`), then `/plugin install fixragent@fixragent`.
 2. Optional: get a free demo key at <https://fixragent.com/docs#key>. In Claude Code, the plugin asks for it when you enable the plugin (the "fixRAgent key (optional)" field). It is stored as a sensitive value and sent only as the `x-triage-key` header to `https://fixragent.com/mcp`. Leave it empty to use keyless mode.
 3. Ask Claude: "What does fixRAgent do?" to see the sample, or share a photo and ask "How urgent is this?"
 

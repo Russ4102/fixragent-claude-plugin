@@ -1,0 +1,21 @@
+{
+  "name": "fixragent",
+  "owner": {
+    "name": "AR Logic LLC",
+    "email": "support@fixragent.com"
+  },
+  "metadata": {
+    "description": "fixRAgent: maintenance triage for property managers, landlords and the companies that run buildings."
+  },
+  "plugins": [
+    {
+      "name": "fixragent",
+      "source": "./",
+      "description": "Maintenance triage from one photo for property managers, landlords and maintenance teams: what the asset is, how urgent it is (EMERGENCY, TODAY, THIS WEEK or WHENEVER), which trade to call, and what to tell the resident.",
+      "homepage": "https://fixragent.com/connect-ai.html",
+      "repository": "https://github.com/Russ4102/fixragent-claude-plugin",
+      "license": "MIT",
+      "keywords": ["property-management", "maintenance", "triage", "work-orders", "property-managers"]
+    }
+  ]
+}
