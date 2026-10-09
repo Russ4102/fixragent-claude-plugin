@@ -1,6 +1,6 @@
 ---
 name: triage-maintenance-photo
-description: Use when someone shares or points to a photo of something in a building (a leak, a water heater, a boiler, an electrical panel, an appliance, damage) and wants to know what it is, how urgent it is, and who to call. Calls the fixRAgent assess_property_photo tool and presents the result in plain words for a property manager, landlord or maintenance team. Also use when they ask what fixRAgent does, via try_sample.
+description: Use when someone shares or points to a photo of something in a building (a leak, a water heater, a boiler, an electrical panel, an appliance, damage) and wants to know what it is, how urgent it is, and who to call. Also use when a property manager, landlord or maintenance team mentions a maintenance request, a resident's complaint or something broken, leaking or not working, even with no photo yet; when they ask what fixRAgent does; or when they have just added fixRAgent and want to try it. Calls the fixRAgent tools (try_sample with no photo or key, assess_property_photo with a photo) and presents the result in plain words.
 ---
 
 # Triage a maintenance photo with fixRAgent
