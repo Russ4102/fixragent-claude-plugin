@@ -51,4 +51,4 @@ Then:
 
 ## Reading one back
 
-If someone pastes a `fixragent.com/c/<id>` link or a diagnosis id, call `get_triage_profile` with that id. It reads the saved assessment, does not re-read the photo, needs no key and spends nothing from the daily allowance (reads share a limit of 20 an hour per address).
+If someone pastes a `fixragent.com/c/<id>` link or a diagnosis id, call `get_triage_profile` with that id. It reads the saved assessment, does not re-read the photo, needs no key (but a key that is set must be valid) and spends nothing from the daily allowance. If it fails, ask the person to open the link and paste what it shows.

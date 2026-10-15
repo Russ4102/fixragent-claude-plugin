@@ -7,7 +7,7 @@ description: Use when a property manager or maintenance coordinator wants to log
 
 ## Get the profile
 
-- Use a fixRAgent result already in the conversation, or call `get_triage_profile` with a diagnosis id or the id at the end of a `fixragent.com/c/<id>` link. That read needs no key; if it returns an error, ask the person to paste what the link shows instead. Never fill in an urgency or trade the profile does not carry.
+- Use a fixRAgent result already in the conversation, or call `get_triage_profile` with a diagnosis id or the id at the end of a `fixragent.com/c/<id>` link. That read needs no key (a key that is set must be valid); if it returns an error, ask the person to paste what the link shows instead. Never fill in an urgency or trade the profile does not carry.
 - If there is only a photo, run the `triage-maintenance-photo` skill first.
 - If the result has `sample: true`, do not log it as a work order: it is a sample, not this property's problem. Say so.
 

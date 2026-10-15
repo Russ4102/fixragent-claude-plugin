@@ -8,7 +8,7 @@ description: Use when a property manager or landlord wants a short text or email
 ## Get the profile
 
 - If a fixRAgent result is already in this conversation, use it.
-- If the person gives a `fixragent.com/c/<id>` link or a diagnosis id, call `get_triage_profile` with the id. That read needs no key; if it returns an error, ask the person to paste what the link shows instead. Never fill in an urgency or trade the profile does not carry.
+- If the person gives a `fixragent.com/c/<id>` link or a diagnosis id, call `get_triage_profile` with the id. That read needs no key (a key that is set must be valid); if it returns an error, ask the person to paste what the link shows instead. Never fill in an urgency or trade the profile does not carry.
 - If there is only a photo, run the `triage-maintenance-photo` skill first.
 - If the result has `sample: true`, stop: it is a sample, not an assessment of this tenant's problem. Say so and do not write a reply from it.
 
