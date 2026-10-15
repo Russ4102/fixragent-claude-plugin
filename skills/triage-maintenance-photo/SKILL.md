@@ -1,11 +1,11 @@
 ---
 name: triage-maintenance-photo
-description: Use when someone shares or points to a photo of something in a building (a leak, a water heater, a boiler, an electrical panel, an appliance, damage) and wants to know what it is, how urgent it is, and who to call. Also use when a property manager, landlord or maintenance team mentions a maintenance request, a resident's complaint or something broken, leaking or not working, even with no photo yet; when they ask what fixRAgent does; or when they have just added fixRAgent and want to try it. Calls the fixRAgent tools (try_sample with no photo or key, assess_property_photo with a photo) and presents the result in plain words.
+description: Use when someone shares or points to a photo of something in a building (a leak, a water heater, a boiler, an electrical panel, an appliance, damage) and wants to know what it is, how urgent it is, and who to call. Also use when a property manager, landlord or maintenance team mentions a maintenance request, a resident's complaint or something broken, leaking or not working, even with no photo yet (then they get a link to add one); when they ask what fixRAgent does; or when they have just added fixRAgent and want to try it. Calls the fixRAgent tools (try_sample with no photo or key, assess_property_photo with a photo) and presents the result in plain words.
 ---
 
 # Triage a maintenance photo with fixRAgent
 
-You have the fixRAgent MCP server (`fixragent`) with three tools: `try_sample`, `assess_property_photo` and `get_triage_profile`. Use them; do not guess a triage yourself and present it as fixRAgent's.
+You have the fixRAgent MCP server (`fixragent`) with three tools: `try_sample`, `assess_property_photo` and `get_triage_profile`. Use them. Only what these tools return is fixRAgent's answer: never write a triage, urgency word or trade yourself and present it as fixRAgent's or as following fixRAgent's rubric.
 
 ## 1. Danger first
 
@@ -13,7 +13,9 @@ If the person describes something happening right now that needs emergency servi
 
 ## 2. No photo yet, or "what does this do?"
 
-Call `try_sample`. It needs no key and no input. Say plainly that the result is a SAMPLE: a stored fixRAgent assessment of a sample photo from fixRAgent's test set, not a read of any photo of theirs.
+- **"What does this do?" or they just added fixRAgent:** call `try_sample`. It needs no key and no input. Say plainly that the result is a SAMPLE: a stored fixRAgent assessment of a sample photo from fixRAgent's test set, not a read of any photo of theirs.
+- **A real problem but no photo you can send** (they described it in words, or you can see an image but cannot get its bytes): do not call `assess_property_photo` with words only, and do not write an urgency, trade or finding yourself and call it fixRAgent's. Give them this link to add the photo themselves: https://fixragent.com/?utm_source=mcp&utm_medium=no-photo . They get the full Triage Profile on that page, with a link to copy; if they paste that `fixragent.com/c/` link back, call `get_triage_profile` with it and present the result as in step 4. If `assess_property_photo` is called without a photo anyway, it assesses nothing and returns the same link: pass it on.
+- If you offer any general view of your own while waiting, say it is yours and not fixRAgent's.
 
 ## 3. Assess their photo
 
@@ -49,4 +51,4 @@ Then:
 
 ## Reading one back
 
-If someone pastes a `fixragent.com/c/<id>` link or a diagnosis id, call `get_triage_profile` with that id. It reads the saved assessment, does not re-read the photo and spends nothing from the daily allowance, but it needs a fixRAgent key: without one it returns an error saying no key was sent. In that case, ask the person to open the link and paste what it shows, or to add a free key from https://fixragent.com/docs#key.
+If someone pastes a `fixragent.com/c/<id>` link or a diagnosis id, call `get_triage_profile` with that id. It reads the saved assessment, does not re-read the photo, needs no key (but a key that is set must be valid) and spends nothing from the daily allowance. If it fails, ask the person to open the link and paste what it shows.
