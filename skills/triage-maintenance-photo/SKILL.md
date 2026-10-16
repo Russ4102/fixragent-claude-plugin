@@ -14,7 +14,7 @@ If the person describes something happening right now that needs emergency servi
 ## 2. No photo yet, or "what does this do?"
 
 - **"What does this do?" or they just added fixRAgent:** call `try_sample`. It needs no key and no input. Say plainly that the result is a SAMPLE: a stored fixRAgent assessment of a sample photo from fixRAgent's test set, not a read of any photo of theirs.
-- **A real problem but no photo you can send** (they described it in words, or you can see an image but cannot get its bytes): do not call `assess_property_photo` with words only, and do not write an urgency, trade or finding yourself and call it fixRAgent's. Give them this link to add the photo themselves: https://fixragent.com/?utm_source=mcp&utm_medium=no-photo . They get the full Triage Profile on that page, with a link to copy; if they paste that `fixragent.com/c/` link back, call `get_triage_profile` with it and present the result as in step 4. If `assess_property_photo` is called without a photo anyway, it assesses nothing and returns the same link: pass it on.
+- **A real problem but no photo you can send** (they described it in words, or you can see an image but cannot get its bytes): do not write an urgency, trade or finding yourself and call it fixRAgent's. Call `assess_property_photo` with no photo: it assesses nothing, spends nothing, and returns a fixragent.com link with a code on it ("NOT ASSESSED"; it comes back marked as an error, which is expected here, not a failure to report). Give them that link to add the photo themselves; they see the full Triage Profile on that page. When they say the photo is added, call `get_triage_profile` with the `h-<code>` the reply named and present the result as in step 4 (the code works for 48 hours). If that read says "NOT YET", the photo has not reached fixRAgent: ask them to add it on the same link, then read again with the same code. If they paste a `fixragent.com/c/` link back instead, call `get_triage_profile` with that.
 - If you offer any general view of your own while waiting, say it is yours and not fixRAgent's.
 
 ## 3. Assess their photo
@@ -51,4 +51,4 @@ Then:
 
 ## Reading one back
 
-If someone pastes a `fixragent.com/c/<id>` link or a diagnosis id, call `get_triage_profile` with that id. It reads the saved assessment, does not re-read the photo, needs no key (but a key that is set must be valid) and spends nothing from the daily allowance. If it fails, ask the person to open the link and paste what it shows.
+If someone pastes a `fixragent.com/c/<id>` link, a diagnosis id, or an `h-` code from a photo link, call `get_triage_profile` with it. It reads the saved assessment, does not re-read the photo, needs no key (but a key that is set must be valid) and spends nothing from the daily allowance. If it fails, ask the person to open the link and paste what it shows.
