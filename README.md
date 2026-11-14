@@ -23,13 +23,11 @@ Anything happening right now that needs emergency services (fire, a gas smell, s
 | Skill `tenant-reply` | Turns a Triage Profile into a short, calm text or email for the resident, using only what the profile says. |
 | Skill `work-order-note` | Formats a Triage Profile as a plain-text work-order note you can paste into any property-management or maintenance software. |
 
-The skills use only what fixRAgent returns. They do not add costs, repair steps, parts or schedules.
+The skills use only what fixRAgent returns, so what you read is what fixRAgent said.
 
-## Pricing and limits
+## Keys
 
-Free demo key; keyless use limited to 3 assessments a day.
-
-In detail: without a key, `assess_property_photo` reads the real photo up to 3 times in a rolling 24 hours for each caller (counted by network address and app), within a daily ceiling shared by every keyless caller. Past either limit it returns the stored SAMPLE instead and does not read the photo. A free demo key from <https://fixragent.com/docs#key> allows up to 60 assessments a day per key, within a daily pool shared by all issued keys. Every address is also limited to 20 requests an hour.
+Try it with no key: `try_sample` shows a stored sample result, and you can start with `assess_property_photo` straight away. For regular use, get a key at <https://fixragent.com/docs#key>. Allowances, fair-use details and everything else are kept current at <https://fixragent.com/docs>.
 
 ## Setup
 

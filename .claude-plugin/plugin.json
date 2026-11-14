@@ -25,7 +25,7 @@
     "triage_key": {
       "type": "string",
       "title": "fixRAgent key (optional)",
-      "description": "Your free fixRAgent demo key from https://fixragent.com/docs#key. Leave empty to use keyless mode (up to 3 real photo assessments per caller in a rolling 24 hours).",
+      "description": "Your fixRAgent key from https://fixragent.com/docs#key. Optional: leave empty to try the plugin without one.",
       "sensitive": true,
       "required": false,
       "default": ""

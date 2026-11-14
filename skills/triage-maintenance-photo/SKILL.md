@@ -45,7 +45,7 @@ Then:
 
 ## 5. Limits to state honestly
 
-- If the result has `sample: true`, it is the stored SAMPLE, **not** an assessment of their photo. This happens when no key was sent and the keyless allowance (3 per caller in a rolling 24 hours, within a daily ceiling shared by all keyless callers) is used up. Say so, and point them to a free key at https://fixragent.com/docs#key, which they can enter as this plugin's optional fixRAgent key (Claude Code asks for it when the plugin is enabled).
+- If the result has `sample: true`, it is the stored SAMPLE, **not** an assessment of their photo. This happens when no key was sent and the keyless allowance is used up. Say so, and point them to a key at https://fixragent.com/docs#key, which they can enter as this plugin's optional fixRAgent key (Claude Code asks for it when the plugin is enabled).
 - The result is a triage from one photo, not an inspection. It does not replace a qualified tradesperson on site.
 - Do not add costs, repair steps, part numbers or timelines the tool did not return.
 
