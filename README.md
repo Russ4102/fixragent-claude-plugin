@@ -2,7 +2,7 @@
 
 **fixRAgent is maintenance triage for property managers, landlords and the companies that run buildings.** This plugin puts it inside Claude: a resident sends a photo of what broke, and Claude tells you what it is, how urgent it is, which trade to call and what to say back. It connects to fixRAgent's remote MCP server at `https://fixragent.com/mcp` and adds three skills for a manager's day: triage the photo, reply to the resident, and log a work-order note.
 
-Setup for Claude and every other assistant: <https://fixragent.com/connect-ai>. Made by AR Logic LLC, Saint Marys, Ohio.
+Setup for Claude and every other assistant: <https://fixragent.com/connect-ai>. Made by AR Logic LLC, Ohio.
 
 Share a photo of something broken in a building (a leaking pipe, a water heater, a boiler, an electrical panel, an appliance, damage) and Claude returns fixRAgent's Triage Profile in plain words:
 
