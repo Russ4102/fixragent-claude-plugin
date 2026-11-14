@@ -18,18 +18,18 @@ Anything happening right now that needs emergency services (fire, a gas smell, s
 
 | Part | What it does |
 |---|---|
-| MCP server `fixragent` | Connects Claude to fixRAgent's remote server at `https://fixragent.com/mcp`, with three tools: `try_sample` (a stored sample result, no key needed), `assess_property_photo` (assess one photo) and `get_triage_profile` (read a saved assessment back; needs a key). |
+| MCP server `fixragent` | Connects Claude to fixRAgent's remote server at `https://fixragent.com/mcp`, with three tools: `try_sample` (a stored sample result, no key needed), `assess_property_photo` (assess one photo) and `get_triage_profile` (read a saved assessment back, no key needed). |
 | Skill `triage-maintenance-photo` | When you share a building-fault photo, sends it for assessment and presents the four answers, any safety note, the resident line and the Triage Profile link. |
 | Skill `tenant-reply` | Turns a Triage Profile into a short, calm text or email for the resident, using only what the profile says. |
 | Skill `work-order-note` | Formats a Triage Profile as a plain-text work-order note you can paste into any property-management or maintenance software. |
 
-The skills use only what fixRAgent returns. They do not add costs, repair steps, parts or schedules.
+The skills stick to what fixRAgent returns, so every message you pass on is grounded in the photo.
 
-## Pricing and limits
+## Pricing and allowances
 
-Free demo key; keyless use limited to 3 assessments a day.
+Start free: 3 real assessments a day with no key, 60 a day with a free demo key from <https://fixragent.com/docs#key>.
 
-In detail: without a key, `assess_property_photo` reads the real photo up to 3 times in a rolling 24 hours for each caller (counted by network address and app), within a daily ceiling shared by every keyless caller. Past either limit it returns the stored SAMPLE instead and does not read the photo. A free demo key from <https://fixragent.com/docs#key> allows up to 60 assessments a day per key, within a daily pool shared by all issued keys. Every address is also limited to 20 requests an hour.
+In detail: without a key, `assess_property_photo` reads the real photo up to 3 times in a rolling 24 hours for each caller (counted by network address and app), from a fair-use pool shared by every keyless caller; after that it shows the stored SAMPLE. A free demo key allows up to 60 assessments a day, from a pool shared by all issued keys. Each address can make 20 requests an hour.
 
 ## Setup
 
@@ -64,9 +64,9 @@ It covers what is collected, how it is used and stored, who else processes it, h
 
 fixRAgent is made for adults: the Terms of Service require users to be 18 or older, or to use it with a parent or guardian.
 
-## Limits of the result
+## What the result is for
 
-A Triage Profile is an assessment of one photo, not an on-site inspection, and it does not replace a qualified tradesperson. If the photo does not show a fault, the result says so; that is not the same as "nothing is wrong".
+A Triage Profile reads one photo and routes the job: what it is, how urgent, which trade to call, what to tell the resident. The right licensed trade confirms on site. If the photo shows no fault, the result says so.
 
 ## Support
 
