@@ -2,7 +2,7 @@
 
 **fixRAgent is maintenance triage for property managers, landlords and the companies that run buildings.** This plugin puts it inside Claude: a resident sends a photo of what broke, and Claude tells you what it is, how urgent it is, which trade to call and what to say back. It connects to fixRAgent's remote MCP server at `https://fixragent.com/mcp` and adds three skills for a manager's day: triage the photo, reply to the resident, and log a work-order note.
 
-Setup for Claude and every other assistant: <https://fixragent.com/connect-ai>. Made by AR Logic LLC, Saint Marys, Ohio.
+Setup for Claude and every other assistant: <https://fixragent.com/connect-ai>. Made by AR Logic LLC.
 
 Share a photo of something broken in a building (a leaking pipe, a water heater, a boiler, an electrical panel, an appliance, damage) and Claude returns fixRAgent's Triage Profile in plain words:
 
@@ -18,7 +18,7 @@ Anything happening right now that needs emergency services (fire, a gas smell, s
 
 | Part | What it does |
 |---|---|
-| MCP server `fixragent` | Connects Claude to fixRAgent's remote server at `https://fixragent.com/mcp`, with three tools: `try_sample` (a stored sample result, no key needed), `assess_property_photo` (assess one photo) and `get_triage_profile` (read a saved assessment back; needs a key). |
+| MCP server `fixragent` | Connects Claude to fixRAgent's remote server at `https://fixragent.com/mcp`, with three tools: `try_sample` (a stored sample result, no key needed), `assess_property_photo` (assess one photo) and `get_triage_profile` (read a saved assessment back; no key needed). |
 | Skill `triage-maintenance-photo` | When you share a building-fault photo, sends it for assessment and presents the four answers, any safety note, the resident line and the Triage Profile link. |
 | Skill `tenant-reply` | Turns a Triage Profile into a short, calm text or email for the resident, using only what the profile says. |
 | Skill `work-order-note` | Formats a Triage Profile as a plain-text work-order note you can paste into any property-management or maintenance software. |
@@ -46,7 +46,7 @@ Try it with no key: `try_sample` shows a stored sample result, and you can start
 - The plugin runs no code on your machine. It has no hooks, no scripts and no local server.
 - When you ask for an assessment, Claude sends the photo (base64-encoded), its file type, and, if you give it, the problem in the reporter's words to `https://fixragent.com/mcp`, operated by AR Logic LLC. If you set a key, it is sent in the `x-triage-key` header. Nothing is sent to any other destination.
 - fixRAgent removes the photo's location metadata on its server before the photo is hashed, read or stored. It is not removed before the photo leaves your machine.
-- The MCP server passes the photo to the same triage engine as fixRAgent's API. fixRAgent sends the cleaned photo to Google's model service to read it, keeps the cleaned photo with its Triage Profile (from 6 October 2026; shown to anyone who has the profile's link), and keeps the assessment record (the answer, the engine versions and a SHA-256 hash of the cleaned photo) under a random `diagnosis_id` until you ask for it to be deleted. The problem text is used for the read and has no field in the stored record. The full details, including what Google keeps and for how long, are in the privacy policy (section "The triage card", which covers the API).
+- The MCP server passes the photo to the same triage engine as fixRAgent's API. fixRAgent sends the cleaned photo to the model providers named in its privacy policy (Google's Gemini model service, and Anthropic's Claude for some photos) to read it, keeps the cleaned photo with its Triage Profile (from 6 October 2026; shown to anyone who has the profile's link), and keeps the assessment record (the answer, the engine versions and a SHA-256 hash of the cleaned photo) under a random `diagnosis_id` until you ask for it to be deleted. The problem text is used for the read and has no field in the stored record. The full details, including what each provider keeps and for how long, are in the privacy policy (section "The triage card", which covers the API).
 - To delete a record, email legal@fixragent.com with the `diagnosis_id` shown in the result.
 
 ## Privacy Policy
